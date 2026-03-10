@@ -36,22 +36,22 @@ npm run format     # Prettier
 ## Architecture
 
 ```
-doc/  # ドキュメント
-
-src/
-├── components/       # UIコンポーネント
-│   ├── common/       # 汎用（Button, Modal, ProgressBar等）
-│   ├── home/         # ホーム画面
-│   ├── plan/         # 治療計画設定
-│   ├── bodymap/      # ボディマップ
-│   └── ftu/          # FTUガイド
-├── hooks/            # カスタムフック
-├── stores/           # Zustand ストア
-├── types/            # TypeScript型定義
-├── utils/            # ユーティリティ関数
-├── constants/        # 定数（FTU目安値、ステロイドランク等）
-├── assets/           # SVG、画像
-└── App.tsx
+（ルート）
+├── docs/                 # ドキュメント
+└── source/                  # アプリケーションコード
+    ├── components/       # UIコンポーネント
+    │   ├── common/       # 汎用（Button, Modal, ProgressBar等）
+    │   ├── home/         # ホーム画面
+    │   ├── plan/         # 治療計画設定
+    │   ├── bodymap/      # ボディマップ
+    │   └── ftu/          # FTUガイド
+    ├── hooks/            # カスタムフック
+    ├── stores/           # Zustand ストア
+    ├── types/            # TypeScript型定義
+    ├── utils/            # ユーティリティ関数
+    ├── constants/        # 定数（FTU目安値、ステロイドランク等）
+    ├── assets/           # SVG、画像
+    └── App.tsx
 ```
 
 ## Data Model（核となる型）
