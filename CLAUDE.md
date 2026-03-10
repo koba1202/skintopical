@@ -125,3 +125,8 @@ type ApplicationLog = {
 - 医療情報の正確性に関わるテキスト（FTU目安値、免責事項等）は `constants/` で一元管理し、散在させない
 - ボディマップSVGのパーツIDは `bodyPartId` と一致させること
 - 日付処理は `date-fns` を使用。ネイティブ Date の直接操作を避ける
+
+## 進捗状況
+
+- 環境構築が完了
+- `npm run dev` で `App.tsx` で書かれた画面が表示された
