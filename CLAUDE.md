@@ -62,6 +62,14 @@ npm run format     # Prettier
 
 主要エンティティ: TreatmentPlan → Phase → BodyPartConfig, ApplicationLog
 
+## Modify Document
+
+仕様が固まったり、変更があった場合は以下のファイルを確認し、整合性チェックを行う。
+修正が必要な場合はユーザーに確認を取り、ユーザーが修正するか Claude が修正するか確認する。
+
+- `\CLAUDE.md`
+- `\docs\requirements_definition.md`
+
 ## Coding Rules
 
 - コンポーネントは関数コンポーネント + hooks
