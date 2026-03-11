@@ -56,43 +56,11 @@ npm run format     # Prettier
 
 ## Data Model（核となる型）
 
-```typescript
-type TreatmentPlan = {
-  id: string;
-  name: string;
-  startDate: string;       // ISO 8601
-  status: "active" | "completed" | "paused";
-  phases: Phase[];
-};
+詳細は以下を参照：
+- 設計・型定義: `docs/requirements_definition.md` §4（データモデル）
+- 実装（今後作成）: `source/types/` 配下
 
-type Phase = {
-  id: string;
-  order: number;
-  name: string;
-  frequency: "twice_daily" | "once_daily" | "every_other_day" | "weekly_n" | "custom";
-  timings: string[];       // ["08:00", "22:00"]
-  durationDays: number | null;
-  targetBodyParts: BodyPartConfig[];
-  status: "pending" | "active" | "completed";
-};
-
-type BodyPartConfig = {
-  bodyPartId: string;
-  medication: string;
-  steroidRank: "strongest" | "very_strong" | "strong" | "medium" | "weak";
-  ftuAmount: number;
-};
-
-type ApplicationLog = {
-  id: string;
-  phaseId: string;
-  date: string;
-  timing: string;
-  appliedBodyParts: string[];
-  skipped: boolean;
-  skipReason?: string;
-};
-```
+主要エンティティ: TreatmentPlan → Phase → BodyPartConfig, ApplicationLog
 
 ## Coding Rules
 
