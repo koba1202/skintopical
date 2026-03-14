@@ -106,3 +106,5 @@ npm run format     # Prettier
 
 - 環境構築が完了
 - `npm run dev` で `App.tsx` で書かれた画面が表示された
+- `source/src/` 配下にアーキテクチャ通りのディレクトリ構造を作成した（components/, hooks/, stores/, types/, utils/, constants/, assets/）
+- `source/src/types/index.ts` を作成し、`FrequencyType`・`SteroidRank`・`BodyPartConfig` の型定義を実装した
