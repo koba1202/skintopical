@@ -108,3 +108,6 @@ npm run format     # Prettier
 - `npm run dev` で `App.tsx` で書かれた画面が表示された
 - `source/src/` 配下にアーキテクチャ通りのディレクトリ構造を作成した（components/, hooks/, stores/, types/, utils/, constants/, assets/）
 - `source/src/types/index.ts` を作成し、`FrequencyType`・`SteroidRank`・`BodyPartConfig` の型定義を実装した
+- `source/src/types/index.ts` に `Phase`・`TreatmentPlan`・`ApplicationLog` の型定義を追加した（設計書との差分レビューを経て修正済み）
+- `source/src/stores/treatmentPlanStore.ts` を作成し、Zustand による `TreatmentPlan` の状態管理（`plans`・`activePlanId` + 4アクション）を実装した
+- `persist` ミドルウェアによる localStorage 永続化と `Date` のシリアライズ問題を次のタスクとして確認した
