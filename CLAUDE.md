@@ -121,3 +121,6 @@ npm run format     # Prettier
 - `source/src/types/index.ts` に `Phase`・`TreatmentPlan`・`ApplicationLog` の型定義を追加した（設計書との差分レビューを経て修正済み）
 - `source/src/stores/treatmentPlanStore.ts` を作成し、Zustand による `TreatmentPlan` の状態管理（`plans`・`activePlanId` + 4アクション）を実装した
 - `persist` ミドルウェアによる localStorage 永続化と `Date` のシリアライズ問題を次のタスクとして確認した
+- `treatmentPlanStore.ts` に `persist` ミドルウェアを追加し、localStorage への永続化と `Date` のデシリアライズ（`startDate`・`createdAt`）を実装した
+- `vite.config.ts` と `tsconfig.app.json` に `@/` エイリアスを設定した（`@/` → `src/`）
+- `source/src/components/plan/TreatmentPlanSetting.tsx` を作成し、プラン名・開始日・フェーズ追加・フェーズ名編集の基本フォームを実装した
