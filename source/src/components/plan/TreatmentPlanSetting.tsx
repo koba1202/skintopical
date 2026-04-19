@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Phase } from '@/types'
+import type { FrequencyType, Phase } from '@/types/'
 
 const TreatmentPlanSetting = () => {
   const [planName, setPlanName] = useState('');
   const [startDate, setStartDate] = useState<Date | null>(null);
-
   const [phases, setPhases] = useState<Phase[]>([]);
 
   const addPhase = () => {
@@ -48,6 +47,25 @@ const TreatmentPlanSetting = () => {
             <input
               value={phase.name}
               onChange={(e) => updatePhase(phase.id, { name: e.target.value })}
+            />
+            <select
+              value={phase.frequency}
+              onChange={(e) => updatePhase(phase.id, { frequency: e.target.value as FrequencyType })}
+            >
+              <option value="twice_daily">1日2回</option>
+              <option value="once_daily">1日1回</option>
+              <option value="every_other_day">隔日</option>
+              <option value="weekly_n">週N日</option>
+              <option value="custom">カスタム</option>
+            </select>
+            <input
+              type="number"
+              min={1}
+              placeholder="期間（日数）"
+              value={phase.durationDays ?? ''}
+              onChange={(e) => updatePhase(phase.id, {
+                durationDays: e.target.value === '' ? null : Number(e.target.value)
+              })}
             />
           </li>
         ))}
