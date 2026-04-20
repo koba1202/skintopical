@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { FrequencyType, Phase } from '@/types/'
+import { BodyPartConfigEditor } from './BodyPartConfigEditor'
 
 const TreatmentPlanSetting = () => {
   const [planName, setPlanName] = useState('');
@@ -66,6 +67,10 @@ const TreatmentPlanSetting = () => {
               onChange={(e) => updatePhase(phase.id, {
                 durationDays: e.target.value === '' ? null : Number(e.target.value)
               })}
+            />
+            <BodyPartConfigEditor
+              value={phase.targetBodyParts}
+              onChange={(e) => updatePhase(phase.id, { targetBodyParts: configs })}
             />
           </li>
         ))}
