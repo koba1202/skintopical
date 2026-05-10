@@ -1,6 +1,7 @@
 import { useState } from "react";
-import type { FrequencyType, Phase } from '@/types/'
-import { BodyPartConfigEditor } from './BodyPartConfigEditor'
+import { useTreatmentPlanStore } from '@/stores/treatmentPlanStore';
+import type { TreatmentPlan, FrequencyType, Phase } from '@/types/';
+import { BodyPartConfigEditor } from '@/components/plan/BodyPartConfigEditor';
 
 const TreatmentPlanSetting = () => {
   const [planName, setPlanName] = useState('');
@@ -23,6 +24,26 @@ const TreatmentPlanSetting = () => {
 
   const updatePhase = (id: string, updates: Partial<Phase>) => {
     setPhases(phases.map((p) => (p.id === id ? {...p, ...updates} : p)));
+  };
+
+  const addPlan = useTreatmentPlanStore((state) => state.addPlan);
+
+  const handleSave = () => {
+    if (!planName.trim() || !startDate) return ;
+
+    const newPlan: TreatmentPlan = {
+      id: crypto.randomUUID(),
+      name: planName.trim(),
+      startDate: startDate,
+      status: "active",
+      createdAt: new Date(),
+      phases: phases,
+    }
+
+    addPlan(newPlan)
+    setPlanName('');
+    setStartDate(null);
+    setPhases([]);
   };
 
   return (
@@ -70,11 +91,21 @@ const TreatmentPlanSetting = () => {
             />
             <BodyPartConfigEditor
               value={phase.targetBodyParts}
-              onChange={(e) => updatePhase(phase.id, { targetBodyParts: configs })}
+              onChange={(configs) => updatePhase(phase.id, { targetBodyParts: configs })}
             />
           </li>
         ))}
       </ul>
+      <button
+        type='button'
+        onClick={handleSave}
+        disabled={!planName.trim() || !startDate}
+      >
+        保存
+      </button>
+      <div>
+        {useTreatmentPlanStore.plan}
+      </div>
     </div>
   )
 }

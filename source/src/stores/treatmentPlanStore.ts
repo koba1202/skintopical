@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { TreatmentPlan } from '../types';
+import type { TreatmentPlan } from '@/types/';
 import { persist } from 'zustand/middleware';
 
 type TreatmentPlanStore = {

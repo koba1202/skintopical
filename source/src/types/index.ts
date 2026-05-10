@@ -2,8 +2,20 @@ export type FrequencyType = "twice_daily" | "once_daily" | "every_other_day" | "
 
 export type SteroidRank = "strongest" | "very_strong" | "strong" | "medium" | "weak";
 
+export type BodyPartId =
+  | 'face' | 'neck'
+  | 'upper_arm_left' | 'upper_arm_right'
+  | 'forearm_left' | 'forearm_right'
+  | 'elbow_inner_left' | 'elbow_inner_right'
+  | 'hand_left' | 'hand_right'
+  | 'chest' | 'abdomen' | 'back'
+  | 'thigh_left' | 'thigh_right'
+  | 'knee_back_left' | 'knee_back_right'
+  | 'lower_leg_left' | 'lower_leg_right'
+  | 'foot_left' | 'foot_right';
+
 export type BodyPartConfig = {
-  bodyPartId: string;
+  bodyPartId: BodyPartId;
   medication: string;
   steroidRank: SteroidRank;
   ftuAmount: number;
