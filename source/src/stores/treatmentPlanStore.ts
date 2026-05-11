@@ -14,18 +14,18 @@ type TreatmentPlanStore = {
 export const useTreatmentPlanStore = create<TreatmentPlanStore>()(
   persist(
     (set) => ({
-    plans: [],
-    activePlanId: null,
-    addPlan: (plan) => set((state) => ({ plans: [...state.plans, plan] })),
-    updatePlan: (id, updates) =>
-      set((state) => ({
-        plans: state.plans.map((p) => (p.id === id ? { ...p, ...updates } : p)),
-      })),
-    deletePlan: (id) =>
-      set((state) => ({
-        plans: state.plans.filter((p) => p.id !== id),
-      })),
-    setActivePlan: (id) => set({ activePlanId: id }),
+      plans: [],
+      activePlanId: null,
+      addPlan: (plan) => set((state) => ({ plans: [...state.plans, plan] })),
+      updatePlan: (id, updates) =>
+        set((state) => ({
+          plans: state.plans.map((p) => (p.id === id ? { ...p, ...updates } : p)),
+        })),
+      deletePlan: (id) =>
+        set((state) => ({
+          plans: state.plans.filter((p) => p.id !== id),
+        })),
+      setActivePlan: (id) => set({ activePlanId: id }),
     }),
     {
       name: 'treatment-plan-store',
